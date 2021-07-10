@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public interface IObserver {
+public interface IObserver<T> {
+
+    void update(T info);
 }

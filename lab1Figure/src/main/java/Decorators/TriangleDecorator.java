@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TriangleDecorator extends ShapeDecorator{
     Path2D path2D;
@@ -38,10 +37,22 @@ public class TriangleDecorator extends ShapeDecorator{
     }
 
     @Override
-    public void draw(Graphics g) {
+    public void fill(Graphics g) {
+        g.setColor(fillColor);
         int[] x = {points.get(0), points.get(2), points.get(4)};
         int[] y = {points.get(1), points.get(3), points.get(5)};
         g.fillPolygon(x, y, 3);
+    }
+
+    @Override
+    public void draw(Graphics g, int lineWidth) {
+        g.setColor(drawColor);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke(new BasicStroke(lineWidth));
+        int[] x = {points.get(0), points.get(2), points.get(4)};
+        int[] y = {points.get(1), points.get(3), points.get(5)};
+        g.drawPolygon(x, y, 3);
+        g2d.setStroke(new BasicStroke(1));
     }
 
     private double getSide(int x1, int y1, int x2, int y2) {

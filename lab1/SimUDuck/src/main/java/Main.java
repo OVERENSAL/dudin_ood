@@ -1,6 +1,8 @@
 import FlyStrategy.FlyWithWings;
 import KindOfDucks.*;
 
+import java.util.function.Function;
+
 public class Main {
     public static void main(String[] args) {
         MallardDuck mallardDuck = new MallardDuck();
@@ -20,6 +22,7 @@ public class Main {
         playWithDuck(modelDuck);
         modelDuck.setFlyBehavior(new FlyWithWings());
         playWithDuck(modelDuck);
+
     }
 
     public static void drawDuck(Duck duck) {
@@ -32,5 +35,7 @@ public class Main {
         duck.fly();
         duck.dance();
         System.out.println();
+
     }
 }
+

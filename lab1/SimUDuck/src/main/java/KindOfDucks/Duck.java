@@ -30,5 +30,5 @@ public class Duck {
     }
 
     public void display() {}
-
 }
+

@@ -16,6 +16,26 @@ public class ShapeDecorator implements Shape {
     Shape shape;
     private static final Color COLOR_1 = Color.white;
     private static final Color COLOR_2 = Color.black;
+
+    public void setFillColor(Color fillColor) {
+        this.fillColor = fillColor;
+    }
+
+    public void setDrawColor(Color drawColor) {
+        this.drawColor = drawColor;
+    }
+
+    protected Color fillColor = Color.black, drawColor = Color.black;
+
+    public void setLineWidth(int lineWidth) {
+        this.lineWidth = lineWidth;
+    }
+
+    public int getLineWidth() {
+        return lineWidth;
+    }
+
+    protected int lineWidth = 1;
     protected static final Paint GRADIENT_PAINT = new GradientPaint(0, 0, COLOR_1, 2, 2, COLOR_2, true);
     protected int additional = 10;
     protected boolean select;
@@ -33,7 +53,9 @@ public class ShapeDecorator implements Shape {
         return 0;
     }
 
-    public void draw(Graphics g) { }
+    public void fill(Graphics g) { }
+
+    public void draw(Graphics g, int lineWidth) { }
 
     public void save(File file, FileWriter writer, DecimalFormat formatter) throws IOException { }
 

@@ -29,8 +29,18 @@ public class RectangleDecorator extends ShapeDecorator{
     }
 
     @Override
-    public void draw(Graphics g) {
+    public void fill(Graphics g) {
+        g.setColor(fillColor);
         g.fillRect(points.get(0), points.get(1), points.get(2), points.get(3));
+    }
+
+    @Override
+    public void draw(Graphics g, int lineWidth) {
+        g.setColor(drawColor);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke(new BasicStroke(lineWidth));
+        g.drawRect(points.get(0), points.get(1), points.get(2), points.get(3));
+        g2d.setStroke(new BasicStroke(1));
     }
 
     @Override

@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class WeatherInfo {
+public class WeatherInfo {
+    public double temperature;
+    public double humidity;
+    public double pressure;
 }
